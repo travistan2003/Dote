@@ -3,6 +3,7 @@ Orbital Project (A0273781W-A0282421M)
 
 Team Name: Dote
 Proposed Level of Achievement: Gemini
+
 Members: Travis Tan (A0273781W) & Eliza Cajetas (A0282421M)
 
 Motivation
