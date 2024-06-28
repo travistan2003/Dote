@@ -39,6 +39,8 @@ Milestone 2 - Prototyping:
 Finished Front End 
 Finished all features
 
+Software Engineering: Designed the interface and completed the front end 
+
 Milestone 3 - Extended System:
 Finished BackEnd
 
