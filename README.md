@@ -2,6 +2,7 @@
 Orbital Project (A0273781W-A0282421M)
 
 Team Name: Dote
+
 Proposed Level of Achievement: Gemini
 
 Members: Travis Tan (A0273781W) & Eliza Cajetas (A0282421M)
@@ -25,11 +26,17 @@ Multiple-choice questions to understand the partner’s personality and relation
 Personalized recommendations based on survey answers.
 
 Gifts and date recommendations:
-Recommendations based on survey answers and location.
+Recommendations based on survey answers. This will differ with different survey answers as we suggest the most appropriate places to our clients. (for example, if the couple likes to be outdoors, then we will recommend them hiking and give them the resources to plan trails, tours etc.)
+
+Restaurant Recommendations:
+Gives the best deals for the some of the most popular places to dine-in in Singapore. This will be updated manually based on monthly deals that the restaurants may give (eg. coupons, brunch discounts, happy hour) 
 
 Extension Features:
 Notifications:
 Alerts for the best deals in town for dates and spontaneous activity ideas.
+
+Location: 
+Integration of Google Maps into Restaurant Recommendation Page and Date/Gift Idea page. 
 Timeline
 
 Milestone 1 - Ideation:
@@ -38,28 +45,31 @@ Concrete Idea Planned
 Milestone 2 - Prototyping:
 Finished Front End 
 Finished all features
-
-Software Engineering: Designed the interface and completed the front end 
-
-Milestone 3 - Extended System:
 Finished BackEnd
 
+Milestone 3 - Extended System:
+Improved User Interface 
+Extension Feature - Notification
 
-Tech Stack: HTML + CSS (FrontEnd) , MySQL (database)
+Tech Stack: 
+HTML (Front End)
+CSS (Style and Design) 
+JavaScript (Functionality)
+Firebase (Backend)
 
-Qualifications
-Eliza (A0282421M):
-Code_EXP Top 8 Runner Up - JC category (JavaScript, React Native)
-Scientist-In-School A* Star Programme (R)
-CS1101s/CS2030s/CS2040s (Java)
-Travis (A0273781W):
-CS1010A (Python)
-BT1101 (R)
-CS2030 (Java)
-BT2102 (SQL, Tableau)
+Scope: 
+Deploy in web browsers such as Google Chrome or Safari
+
+Plan: 
+
+Work Log:
+
 
 Software Engineering
-We adopt the Waterfall framework for a systematic approach to app development, while remaining open to Agile methods for flexibility. Our core functionality focuses on analyzing users' text messages to provide personalized feedback. We prioritize mass testing and collaboration with industry experts for continual improvement. Our ultimate goal is to publish the app on platforms like the App Store and Google Play.
+We adopt the Waterfall framework for a systematic approach to app development, while remaining open to Agile methods for flexibility. Our core functionality focuses on analyzing users' text messages to provide personalized feedback.
+
+Future Plans
+We prioritize mass testing and collaboration with industry experts for continual improvement. We would like to get feedback and recommendations on how to better improve the app
 
 Conclusion
 We foresee significant growth as software engineers through this project. Our goal is to deliver a valuable solution that improves communication in relationships, fostering long-lasting, healthy partnerships.
