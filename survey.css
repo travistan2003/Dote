@@ -1,0 +1,238 @@
+
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+}
+
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a {
+    text-decoration: none;
+    color: #680149;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: rgb(240, 4, 94);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+.logo {
+    width: 200px; 
+    }
+
+body{
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #680149;
+    margin: 0;
+}
+body::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-image: linear-gradient(rgba(251, 207, 245, 0.75), rgba(248, 67, 137, 0.75)), url(couple.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#title{
+    color: #680149;
+    font-weight: 600;
+    
+}
+h1{
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+input,button,select,textarea{
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.container{
+    width: 100%;
+    margin: 0.02rem auto 0 auto;
+    padding:0.02rem 0.02rem;
+}
+
+.header{
+    padding: 0 0.625rem;
+    margin-bottom: 1.875rem;
+    text-align: center;
+}
+
+.clue{
+    margin-left: 0.25rem;
+    font-size: 0.9rem;
+    color: #e4e4e4;
+}
+#quest{
+    color: #680149;
+    font-size: 1.5rem;
+    text-align: left;
+}
+form{
+    background: rgba(251, 207, 245, 0.75);
+    border-radius: 0.25rem;
+}
+
+@media (min-width: 480px){
+    form{
+        padding: 2.5rem;
+    }
+}
+.form-group{
+    margin: 0 auto 1.25rem auto;
+    padding: 0.25rem;
+    text-align: center;
+}
+.inputRadio
+{
+    display: inline-block;
+    margin-right: 0.625rem;
+    min-height: 1.25rem;
+    min-width: 1.25rem;
+}
+
+.btn{
+    display: block;
+    width: 100%;
+    padding:0.5rem 0.75rem;
+    background: rgba(248, 67, 137, 0.75);
+    color: inherit;
+    border-radius: 15px;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: #680149;
+    border: none;
+}
+
+button {
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #680149;
+    background: transparent;
+    color:#680149;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 150px; 
+    z-index: 1;
+}
+span {
+    background:rgba(248, 67, 137, 0.75);
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover span {
+    width: 100%;
+}
+button:hover {
+    border: 2px solid #680149;
+}
+
+.pls {
+    display: block; 
+    font-size: 0.9rem;
+    color: red;
+    text-align: left; 
+    margin-top: 10px; 
+}
+.thank-you {
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 20px;
+    color: #680149;
+    text-align: center;
+}
+
+@media (min-width:576px){
+    .container{
+        max-width: 540px;
+    }
+}
+@media (min-width:800px){
+    .container{
+        max-width: 760px;
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(251, 207, 245, 0.75);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px #680149;
+    z-index: 1;
+    border-radius: 5px;
+}
+.dropdown-content a {
+    color: #680149;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+}
+.dropdown-content a:hover {
+    background-color: rgba(251, 207, 245, 0.75);
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}

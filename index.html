@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home | Dote</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            color: #680149;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(251, 207, 245, 0.75), rgba(248, 67, 137, 0.75)), url(couple.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar{
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+        .navbar ul li {
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #680149;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .navbar ul li::after{
+            content: '';
+            height: 3px;
+            width: 0;
+            background: rgb(240, 4, 94);
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+        .navbar ul li:hover::after{
+            width: 100%;
+        }
+
+        .content {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: #680149;
+        }
+        .content h1 {
+            margin-top: 80px;
+            margin-bottom: 10px;
+        }
+        .content p {
+            margin-top: 10px;
+            line-height: 25px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        button {
+            padding: 15px 0;
+            text-align: center;
+            margin: 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 2px solid #680149;
+            background: transparent;
+            color:#680149;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .login-button {
+            width: 150px; 
+        }
+        .survey-button {
+            width: 500px; 
+        }
+        span {
+            background:rgba(248, 67, 137, 0.75);
+            height: 100%;
+            width: 0;
+            border-radius: 25px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            transition: 0.5s;
+        }
+        button:hover span {
+            width: 100%;
+        }
+        button:hover {
+            border: 2px solid #680149;
+        }
+
+        .logo {
+            width: 200px; 
+        }
+        .logo2 {
+            width: 700px; 
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(251, 207, 245, 0.75);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px #680149;
+            z-index: 1;
+            border-radius: 5px;
+        }
+        .dropdown-content a {
+            color: #680149;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 5px;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(251, 207, 245, 0.75);
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <a href="index.html">
+                <img src="logo.png" class="logo">
+            </a>
+            <ul>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="dateideas.html">Date Ideas<br>For You</a></li>
+                <li><a href="#">Our Restaurant <br>Recommendations</a></li>
+                <div class="dropdown">
+                    <button type="button" class="login-button" onclick="toggleDropdown()"><span></span>WELCOME BACK</button>
+                    <div id="dropdown-content" class="dropdown-content">
+                        <a href="#" onclick="signOut()">Sign out</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1><img src="logo.png" class="logo2"></h1>
+            <p>For relationships that last</p>
+            <div>
+                <a href="survey.html">
+                    <button type="button" class="survey-button"><span></span>LET US KNOW MORE ABOUT YOUR PARTNER!</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("dropdown-content").classList.toggle("show");
+        }
+
+        function signOut() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+
+        window.onload = function() {
+            // Check if user is logged in
+            const userInfo = sessionStorage.getItem("user-info");
+            if (!userInfo) {
+                window.location.href = 'login.html';
+            }
+
+            // Example: Save user interaction
+            document.querySelector('.survey-button').addEventListener('click', () => {
+                const userActions = JSON.parse(sessionStorage.getItem("user-actions")) || [];
+                userActions.push("Clicked on survey button");
+                sessionStorage.setItem("user-actions", JSON.stringify(userActions));
+            });
+        };
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.login-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

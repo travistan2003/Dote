@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="survey.css">
+    <title>Survey | Dote</title>
+</head>
+<body>
+    <!-- banner -->
+    <div class="banner">
+        <div class="navbar">
+            <a href="index.html">
+                <img src="logo.png" class="logo">
+            </a>
+            <ul>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="dateideas.html">Date Ideas<br>For You</a></li>
+                <li><a href="#">Our Restaurant <br>Recommendations</a></li>
+                <div class="dropdown">
+                    <button type="button" class="login-button" onclick="toggleDropdown()"><span></span>WELCOME BACK</button>
+                    <div id="dropdown-content" class="dropdown-content">
+                        <a href="#" onclick="signOut()">Sign out</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    <!-- end of banner -->
+
+    <div class="container">
+        <header class="header">
+            <h1 id="title">HELP US GET TO KNOW YOUR PARTNER</h1>
+        </header>
+        <form action="" id="survey-form">
+
+            <!-- Q1 -->
+            <div class="form-group">
+                <p id="quest">Does your partner prefer staying at home or going out?</p>
+                <label>
+                    <input type="radio" name="q1" value="staying-in" class="inputRadio"> Staying In 
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="going-out" class="inputRadio">Going Out
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="both" class="inputRadio"> Both!
+                </label>
+            </div>
+
+            <!-- Q2 -->
+            <div class="form-group">
+                <p id="quest">Does your partner enjoy physical activity?</p>
+                <label>
+                    <input type="radio" name="q2" value="yes" class="inputRadio"> YES!
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="no" class="inputRadio">No...
+                </label>
+            </div>
+
+            <!-- Q3 -->
+            <div class="form-group">
+                <p id="quest">Does your partner like the outdoors?</p>
+                <label>
+                    <input type="radio" name="q3" value="yes" class="inputRadio"> YES!
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="no" class="inputRadio">No...
+                </label>
+            </div>
+
+            <!-- Q4 -->
+            <div class="form-group">
+                <p id="quest">What is your love language?</p>
+                <label>
+                    <input type="radio" name="q4" value="physical-touch" class="inputRadio"> Physical Touch
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="quality-time" class="inputRadio">Quality Time
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="gifts" class="inputRadio">Gifts
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="aos" class="inputRadio">Acts of Service
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="woa" class="inputRadio">Words of Affirmation
+                </label>
+            </div>
+
+            <!-- Q5 -->
+            <div class="form-group">
+                <p id="quest">What is your partner's love language?</p>
+                <label>
+                    <input type="radio" name="q5" value="physical-touch" class="inputRadio"> Physical Touch
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="quality-time" class="inputRadio">Quality Time
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="gifts" class="inputRadio">Gifts
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="aos" class="inputRadio">Acts of Service
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="woa" class="inputRadio">Words of Affirmation
+                </label>
+            </div>
+
+            <!-- Q6 -->
+            <div class="form-group">
+                <p id="quest">How long do you want your dates to last?</p>
+                <label>
+                    <input type="radio" name="q6" value="1-2" class="inputRadio"> 1-2 Hours
+                </label>
+                <label>
+                    <input type="radio" name="q6" value="2-5" class="inputRadio">2-5 Hours
+                </label>
+                <label>
+                    <input type="radio" name="q6" value="whole-day" class="inputRadio"> The Whole Day!
+                </label>
+            </div>
+
+            <!-- end of questions -->
+
+            <div class="form-group">
+                <button type="submit" class="submit-button"><span></span>SUBMIT</button>
+                <div id="error-message" class="pls" style="display: none;">Please answer all the questions before submitting.</div>
+            </div>
+        </form>
+
+        <div id="thank-you" class="thank-you" style="display: none;">
+            <p>Thank you for completing the survey!
+                <br>Your reponses have been recorded and analysed!
+                <br>Please head over to Date Ideas to see our best recommendations just for you!
+            </p>
+        </div>
+    </div>
+
+    <script type="module" src="./survey.js"></script>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("dropdown-content").classList.toggle("show");
+        }
+
+        function signOut() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.login-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
