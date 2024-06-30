@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="restaurants.css">
+    <title>Restaurant Recommendations | Dote</title>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <a href="index.html">
+                <img src="logo.png" class="logo">
+            </a>
+            <ul>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="dateideas.html">Date Ideas<br>For You</a></li>
+                <li><a href="">Our Restaurant <br>Recommendations</a></li>
+                <div class="dropdown">
+                    <button type="button" class="login-button" onclick="toggleDropdown()"><span></span>WELCOME BACK</button>
+                    <div id="dropdown-content" class="dropdown-content">
+                        <a href="#" onclick="signOut()">Sign out</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+        <h1>Here is this month's list of restaurants that we recommend!</h1>
+        <div class="rec1">
+            <h2>Claudine Restaurant</h2>
+            <img src="claudine.jpg" class="pic1">
+            <p>
+                Located in a beautifully preserved colonial chapel amid the lush greenery of Dempsey Hill, Claudine offers a romantic escape from city life. 
+                With stained glass windows, plush velvet banquettes, soft greens and pinks, and soaring ceilings, the ambiance is enchanting. Chef Julien Royer, 
+                co-owner of the three-Michelin-starred Odette, brings classic French comfort cuisine to the table. Start with the exceptional homemade sourdough and 
+                irresistible Iberico butter. For mains, enjoy the Vol-Au-Vent, a flaky puff pastry filled with creamy veal sweetbreads and earthy morel mushrooms, or the Claudine 
+                Bouillabaisse, a rich and hearty fish stew from Provence featuring carabinero prawns.
+                <br><a href="https://www.google.com/maps/place/Claudine+Restaurant/@1.3048787,103.8109402,17z/data=!3m1!4b1!4m6!3m5!1s0x31da193420e53bfb:0xc828523761e16842!8m2!3d1.3048733!4d103.8135205!16s%2Fg%2F11pwwskxz4?entry=ttu" target="_blank">39C Harding Rd, Singapore 249541</a>
+                <br><a href="https://www.sevenrooms.com/reservations/claudine?venues=claudine%2Codette%2Cesora%2Clebonfunk%2Clebonfunkhollandvillage" target="_blank">Make a reservation!</a>
+            </p>
+        </div>
+
+        <div class="rec2">
+            <h2>La Brasserie</h2>
+            <img src="la-brasserie.jpg" class="pic2">
+            <p>La Brasserie's floor-to-ceiling windows offer stunning views of the Marina Bay waterfront, perfect for a romantic evening. 
+                The plush interiors combine modern elegance with classic European charm, creating an inviting ambiance. The menu features 
+                French bistro fare with three-course ($78) or four-course ($98) set dinners. Begin with options like Angus beef tartare, 
+                foie gras, or a seafood bouillabaisse with sea bass and crab. For mains, savor the richness of the cote de boeuf, a beef ribeye, 
+                or try the succulent Lumina lamb with black garlic, sherry, and shallots. Another standout is the toothfish in a creamy anchovy carrot veloute. 
+                Conclude with a sweet apple tarte tatin or a classic creme brulee with vanilla gelato.
+                <br><a href="https://www.google.com/maps/place/PS.Cafe+Harding+Road/@1.3047639,103.8084268,17z/data=!3m2!4b1!5s0x31da1a23388e87a5:0x1d1d19c59bef2c89!4m6!3m5!1s0x31da1a2347eb8a73:0x4a93c111e7537d0b!8m2!3d1.3047585!4d103.8110071!16s%2Fg%2F1tdhjbq7?entry=ttu" target="_blank">39C Harding Rd, Singapore 249541</a>
+                <br><a href="https://www.fullertonhotels.com/fullerton-bay-hotel-singapore/dining/restaurants-and-bars/la-brasserie" target="_blank">Make a reservation!</a>
+            </p>
+        </div>
+
+        <div class="rec3">
+            <h2>PS Cafe Harding </h2>
+            <img src="ps-cafe.jpg" class="pic3">
+            <p>PS.Cafe at Harding Road, a pioneer in Dempsey Hill since 2005, offers a serene escape with panoramic views of lush greenery through its floor-to-ceiling 
+                windows. Known for its modern, spacious design, this location features a menu of classic PS.Cafe dishes alongside exclusive offerings. The full dessert 
+                counter boasts an expanded selection of indulgent cakes and pastries.
+                <br><a href="https://www.google.com/maps/place/La+Brasserie/@1.2831652,103.8508173,17z/data=!3m1!4b1!4m6!3m5!1s0x31da190f02be1749:0x548de834a071f0e0!8m2!3d1.2831598!4d103.8533976!16s%2Fg%2F11b7xp7q29?entry=ttu" target="_blank">39C Harding Rd, Singapore 249541</a>
+                <br><a href="https://book.chope.co/booking?rid=pscafeharding1808psh&source=rest_pscafe" target="_blank">Make a reservation!</a>cl
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("dropdown-content").classList.toggle("show");
+        }
+
+        function signOut() {
+            sessionStorage.clear();
+            window.location.href = 'login.html';
+        }
+
+        window.onload = function() {
+            // Check if user is logged in
+            const userInfo = sessionStorage.getItem("user-info");
+            if (!userInfo) {
+                window.location.href = 'login.html';
+            }
+
+            // Example: Save user interaction
+            document.querySelector('.survey-button').addEventListener('click', () => {
+                const userActions = JSON.parse(sessionStorage.getItem("user-actions")) || [];
+                userActions.push("Clicked on survey button");
+                sessionStorage.setItem("user-actions", JSON.stringify(userActions));
+            });
+        };
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.login-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
