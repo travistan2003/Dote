@@ -1,0 +1,76 @@
+<head>
+    <title>Home | Dote</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styling/home.css" />
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <a href="../interfaces/home.html">
+                <img src="../images/logo.png" class="logo">
+            </a>
+            <ul>
+                <li><a href="../interfaces/calendar.html">Calendar</a></li>
+                <li><a href="../interfaces/dateideas.html">Date Ideas<br>For You</a></li>
+                <li><a href="../interfaces/tasklist.html">Task List</li>
+                <li><a href="../interfaces/restaurants.html">Our Restaurant <br>Recommendations</a></li>
+                <div class="dropdown">
+                    <button type="button" class="login-button" onclick="toggleDropdown()"><span></span>WELCOME BACK</button>
+                    <div id="dropdown-content" class="dropdown-content">
+                        <a href="#" onclick="signOut()">Sign out</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1><img src="../images/logo.png" class="logo2"></h1>
+            <p>For relationships that last</p>
+            <div>
+                <a href="../interfaces/survey.html">
+                    <button type="button" class="survey-button"><span></span>LET US KNOW MORE ABOUT YOUR PARTNER!</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("dropdown-content").classList.toggle("show");
+        }
+
+        function signOut() {
+            sessionStorage.clear();
+            window.location.href = 'index.html';
+        }
+
+        window.onload = function() {
+            // Check if user is logged in
+            const userInfo = sessionStorage.getItem("user-info");
+            if (!userInfo) {
+                window.location.href = '../interfaces/index.html';
+            }
+
+            // Example: Save user interaction
+            document.querySelector('.survey-button').addEventListener('click', () => {
+                const userActions = JSON.parse(sessionStorage.getItem("user-actions")) || [];
+                userActions.push("Clicked on survey button");
+                sessionStorage.setItem("user-actions", JSON.stringify(userActions));
+            });
+        };
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.login-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
