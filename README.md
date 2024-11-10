@@ -1,5 +1,6 @@
 # Dote
-Orbital Project (A0273781W-A0282421M)
+
+NUS Independent Software Development Project (Orbital) 2024 
 
 Team Name: Dote
 
